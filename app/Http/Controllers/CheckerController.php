@@ -34,29 +34,67 @@ class CheckerController extends Controller
     /**
      * Handle upload
      * Uploaded file is stored in the server
+     * @TODO: remove unused worker
      */
     public function handleUpload(Request $request)
     {
-        if ($request->hasFile('doc')) {
-            $doc = $request->doc;
-            $user_id = Auth::user()->id;
+        $user_id = Auth::user()->id;
 
-            // Check if the user had uploaded a file to check
-            $filename = DB::table('user_file_result')->where('user_id', $user_id)->pluck('original_file_name')->first();
-            if ($filename == '' || $filename == null) 
+        // $original_file_name: file name as it is uploaded
+        // $file_name: file name on disk. Syntax: user_id.original_file_name
+        
+        // File input
+        if ($request->hasFile('doc')) 
+        {
+            $doc = $request->doc;
+
+            // Check if the user had uploaded a file to correct
+            $original_file_name = DB::table('user_file_result')->where('user_id', $user_id)->pluck('original_file_name')->first();
+            if ($original_file_name == '' || $original_file_name == null) 
             {
                 // If it doesn't, just insert
                 DB::insert('INSERT INTO user_file_result (user_id, original_file_name) VALUES (?, ?)', [$user_id, $doc->getClientOriginalName()]);
-            } else
+            } else 
             {
                 // If it does, update and delete the old file
                 DB::update('UPDATE user_file_result SET original_file_name = ?, result = NULL WHERE user_id = ?', [$doc->getClientOriginalName(), $user_id]);
-                File::delete('upload/' . $user_id . '.' . $filename);
+                File::delete('upload/' . $user_id . '.' . $original_file_name);
             }
 
-            $doc->move('upload', $user_id . '.' . $doc->getClientOriginalName());
+            $file_name = $user_id . '.' . $doc->getClientOriginalName();
+            $doc->move('upload', $file_name);
 
-            $filename = DB::select('SELECT original_file_name FROM user_file_result WHERE user_id = ?', [$user_id]);
+            $original_file_name = DB::select('SELECT original_file_name FROM user_file_result WHERE user_id = ?', [$user_id]);
+
+            dispatch(new RefChecker(Auth::user()));
+
+            return redirect('results');
+        }
+
+        // Text input
+        if ($request->has('list-references')) 
+        {
+            $content = $request->input('list-references');
+            // The input text is stored inside a file for reference processing
+            // Just pretend that the original file name is the user id
+            $file_name = $user_id . '.' . $user_id;
+            file_put_contents($file_name, $content);
+
+            // Check if the user had typed a list of reference to correct
+            $original_file_name = DB::table('user_file_result')->where('user_id', $user_id)->pluck('original_file_name')->first();
+            if ($original_file_name == '' || $original_file_name == null) 
+            {
+                // If it doesn't, just insert
+                DB::insert('INSERT INTO user_file_result (user_id, original_file_name) VALUES (?, ?)', [$user_id, $user_id]);
+            } else 
+            {
+                // If it does, update and delete the old file
+                DB::update('UPDATE user_file_result SET original_file_name = ?, result = NULL WHERE user_id = ?', [$user_id, $user_id]);
+                File::delete('upload/' . $file_name);
+            }
+
+            // I hate php
+            rename($file_name, 'upload/' . $file_name);
 
             dispatch(new RefChecker(Auth::user()));
 

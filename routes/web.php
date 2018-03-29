@@ -18,7 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/checker', 'CheckerController@checker');
+
 Route::post('/fileUpload', 'CheckerController@handleUpload');
+Route::post('/textUpload', 'CheckerController@handleUpload');
 
 Route::get('/results', 'ResultController@viewResults');
 

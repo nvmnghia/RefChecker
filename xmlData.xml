@@ -1,0 +1,563 @@
+<tei xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML"> 
+ <teiheader /> 
+ <text> 
+  <front /> 
+  <body></body> 
+  <back> 
+   <div> 
+    <listbibl> 
+     <biblstruct xml:id="b0"> 
+      <monogr> 
+       <title></title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          W
+         </forename>
+         <forename type="middle">
+          S
+         </forename>
+         <surname>
+          Da Silva Jãºnior
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          G
+         </forename>
+         <forename type="middle">
+          M
+         </forename>
+         <surname>
+          Araãºjo
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          E
+         </forename>
+         <forename type="middle">
+          A B
+         </forename>
+         <surname>
+          Silva
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          S
+         </forename>
+        </persname> 
+       </author> 
+       <imprint /> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b1"> 
+      <analytic> 
+       <title level="a" type="main">Facial Fiducial Points Detection Using Discriminative Filtering on Principal Components</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <surname>
+          Goldenstein
+         </surname>
+        </persname> 
+       </author> 
+      </analytic> 
+      <monogr> 
+       <title level="m">Proceedings of the IEEE International Conference on Image Processing</title> 
+       <meeting>
+        the IEEE International Conference on Image Processing
+       </meeting> 
+       <imprint> 
+        <date type="published" when="2010-09" /> 
+        <biblscope unit="page" from="2681" to="2684" /> 
+       </imprint> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b2"> 
+      <analytic> 
+       <title level="a" type="main">Passive Multimodal 2-D+3-D Face Recognition Using Gabor Features and Landmark Distances</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          S
+         </forename>
+         <surname>
+          Jahanbin
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          H
+         </forename>
+         <surname>
+          Choi
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          A
+         </forename>
+         <forename type="middle">
+          C
+         </forename>
+         <surname>
+          Bovik
+         </surname>
+        </persname> 
+       </author> 
+      </analytic> 
+      <monogr> 
+       <title level="j">IEEE Transactions on Information Forensics and Security</title> 
+       <imprint> 
+        <biblscope unit="volume">
+         6
+        </biblscope> 
+        <biblscope unit="page" from="1287" to="1304" /> 
+        <date type="published" when="2011" /> 
+       </imprint> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b3"> 
+      <analytic> 
+       <title level="a" type="main">Locating Facial Landmarks by Support Vector Machine-based Active Shape Model</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          Chunhua
+         </forename>
+         <surname>
+          Du
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          Yang
+         </forename>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          Jie
+         </forename>
+         <surname>
+          Wu
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          Qiang
+         </forename>
+         <surname>
+          He
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          Xiangjian
+         </forename>
+        </persname> 
+       </author> 
+      </analytic> 
+      <monogr> 
+       <title level="j">International Journal of Intelligent Systems Technologies and Application</title> 
+       <imprint> 
+        <biblscope unit="volume">
+         10
+        </biblscope> 
+        <biblscope unit="issue">
+         2
+        </biblscope> 
+        <biblscope unit="page" from="151" to="170" /> 
+        <date type="published" when="2011" /> 
+       </imprint> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b4"> 
+      <monogr> 
+       <title level="m" type="main">The Nature of Statistical Learning Theory</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          V
+         </forename>
+         <forename type="middle">
+          N
+         </forename>
+         <surname>
+          Vapnik
+         </surname>
+        </persname> 
+       </author> 
+       <imprint> 
+        <date type="published" when="1998" /> 
+        <publisher>
+         Springer-Verlag New York, Inc
+        </publisher> 
+        <pubplace>
+         New York, NY, USA
+        </pubplace> 
+       </imprint> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b5"> 
+      <analytic> 
+       <title level="a" type="main">LIBSVM: A Library for Support Vector Machines</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          C
+         </forename>
+         <surname>
+          Chang
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          C
+         </forename>
+         <surname>
+          Lin
+         </surname>
+        </persname> 
+       </author> 
+      </analytic> 
+      <monogr> 
+       <title level="j">ACM Transactions on Intelligent Systems and Technology</title> 
+       <imprint> 
+        <biblscope unit="volume">
+         2
+        </biblscope> 
+        <biblscope unit="issue">
+         3
+        </biblscope> 
+        <date type="published" when="2011" /> 
+       </imprint> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b6"> 
+      <analytic> 
+       <title level="a" type="main">Choosing the Kernel Parameters for Support Vector Machines by the Intercluster in the Feature Space</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          K
+         </forename>
+         <surname>
+          Wu
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          S
+         </forename>
+         <surname>
+          Wang
+         </surname>
+        </persname> 
+       </author> 
+      </analytic> 
+      <monogr> 
+       <title level="j">Journal on Pattern Recognition</title> 
+       <imprint> 
+        <biblscope unit="volume">
+         42
+        </biblscope> 
+        <biblscope unit="page" from="710" to="717" /> 
+        <date type="published" when="2009" /> 
+       </imprint> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b7"> 
+      <monogr> 
+       <title level="m" type="main">Bioid Database</title> 
+       <imprint /> 
+      </monogr> 
+      <note>
+       Last access in May of 2013
+      </note> 
+     </biblstruct> 
+     <biblstruct xml:id="b8"> 
+      <analytic> 
+       <title level="a" type="main">Facial Landmarks Detection based on Correlation Filter</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          G
+         </forename>
+         <forename type="middle">
+          M
+         </forename>
+         <surname>
+          Araujo
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          W
+         </forename>
+         <forename type="middle">
+          S
+         </forename>
+         <surname>
+          Da Silva Jãºnior
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          E
+         </forename>
+         <forename type="middle">
+          A B
+         </forename>
+         <surname>
+          Da Silva
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          S
+         </forename>
+         <forename type="middle">
+          K
+         </forename>
+         <surname>
+          Goldenstein
+         </surname>
+        </persname> 
+       </author> 
+      </analytic> 
+      <monogr> 
+       <title level="m">Proceedings of the IEEE International Telecommunication Symposium</title> 
+       <meeting>
+        the IEEE International Telecommunication Symposium
+        <address>
+         <addrline>
+          Manaus, AM, Brazil
+         </addrline></address>
+       </meeting> 
+       <imprint> 
+        <date type="published" when="2010-10" /> 
+       </imprint> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b9"> 
+      <monogr> 
+       <title level="m" type="main">Cognitec Systems</title> 
+       <imprint /> 
+      </monogr> 
+      <note>
+       Last access in May of 2013
+      </note> 
+     </biblstruct> 
+     <biblstruct xml:id="b10"> 
+      <analytic> 
+       <title level="a" type="main">Support Vector Machine-A Survey</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          A
+         </forename>
+         <surname>
+          Pradhan
+         </surname>
+        </persname> 
+       </author> 
+      </analytic> 
+      <monogr> 
+       <title level="j">International Journal of Emerging technology and Advanced Engineering</title> 
+       <imprint> 
+        <biblscope unit="volume">
+         2
+        </biblscope> 
+        <biblscope unit="page" from="82" to="85" /> 
+        <date type="published" when="2012" /> 
+       </imprint> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b11"> 
+      <analytic> 
+       <title level="a" type="main">Robust Real-Time Object Detection</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          P
+         </forename>
+         <surname>
+          Viola
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          M
+         </forename>
+         <surname>
+          Jones
+         </surname>
+        </persname> 
+       </author> 
+      </analytic> 
+      <monogr> 
+       <title level="j">International Journal of Computer Vision</title> 
+       <imprint> 
+        <biblscope unit="volume">
+         57
+        </biblscope> 
+        <biblscope unit="issue">
+         2
+        </biblscope> 
+        <biblscope unit="page" from="137" to="154" /> 
+        <date type="published" when="2001" /> 
+       </imprint> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b12"> 
+      <analytic> 
+       <title level="a" type="main">Enhanced Local Texture Feature Sets for Face Recognition Under Difficult Lighting Conditions</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          T
+         </forename>
+         <surname>
+          Xiaoyang
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          B
+         </forename>
+         <surname>
+          Triggs
+         </surname>
+        </persname> 
+       </author> 
+      </analytic> 
+      <monogr> 
+       <title level="j">IEEE Transactions on Image Processing</title> 
+       <imprint> 
+        <biblscope unit="volume">
+         19
+        </biblscope> 
+        <biblscope unit="issue">
+         6
+        </biblscope> 
+        <biblscope unit="page" from="1635" to="1650" /> 
+        <date type="published" when="2010" /> 
+       </imprint> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b13"> 
+      <analytic> 
+       <title level="a" type="main">Nonlinear Filtering for Image Analysis and Enhancement</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          G
+         </forename>
+         <forename type="middle">
+          R
+         </forename>
+         <surname>
+          Arce
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          J
+         </forename>
+         <forename type="middle">
+          L
+         </forename>
+         <surname>
+          Paredes
+         </surname>
+        </persname> 
+       </author> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          J
+         </forename>
+         <surname>
+          Mullan
+         </surname>
+        </persname> 
+       </author> 
+      </analytic> 
+      <monogr> 
+       <title level="m">Handbook of Image &amp; Video Processing</title> 
+       <editor>
+        A. L. Bovik
+       </editor> 
+       <imprint> 
+        <publisher>
+         Academic Press
+        </publisher> 
+        <date type="published" when="2000" /> 
+       </imprint> 
+      </monogr> 
+     </biblstruct> 
+     <biblstruct xml:id="b14"> 
+      <monogr> 
+       <title level="m" type="main">Open Computer Vision Library-OpenCV</title> 
+       <imprint /> 
+      </monogr> 
+      <note>
+       Last access in May
+      </note> 
+     </biblstruct> 
+     <biblstruct xml:id="b15"> 
+      <monogr> 
+       <title level="m" type="main">A Cross-Validation Framework for Solving Image</title> 
+       <author> 
+        <persname xmlns="http://www.tei-c.org/ns/1.0">
+         <forename type="first">
+          S
+         </forename>
+         <surname>
+          Reeves
+         </surname>
+        </persname> 
+       </author> 
+       <imprint /> 
+      </monogr> 
+     </biblstruct> 
+    </listbibl> 
+   </div> 
+  </back> 
+ </text> 
+</tei>

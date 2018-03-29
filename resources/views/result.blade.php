@@ -30,87 +30,111 @@
 <script type="text/javascript" src="{{ asset('js/datatables.min.js') }}"></script>
 <script type="text/javascript">
 	var data;
-	var currentStyle = 'Havard';
+	var currentStyle = 'APA';
 
     function getResult() {
-        $.ajax({
+        // Check whether DataTable is initialized or not
+        if ($.fn.DataTable.isDataTable('#compare')) {
+            // Already initialized, now change data
+            var datatable = new $.fn.dataTable.Api('#compare');
+            
+            datatable.clear();
+            datatable.rows.add(getReferences(data, currentStyle));
+            datatable.draw();
+
+        } else {
+            // Haven't initialized, no data loaded, do it
+            $.ajax({
             url: '/get_result',
             type: 'GET',
             success: function(json) {
-            	
+                
                 if (! $.trim(json)){
                     // Blank, so request for the result again in 5 sec
                     setTimeout(getResult, 5000);                    
                 } else {
-                	$('#loading').hide();
-        			$('#result').show();
+                    $('#loading').hide();
+                    $('#result').show();
 
-        			data = JSON.parse(json);
-
-        			$('#compare').DataTable({
-        				'data': getReferences(data, 'Havard'),
-        				'ordering': false,
-        				'pageLength': 5,
-        				'columns' : [
-				            { "data" : "original" },
-				            { "data" : "corrected" },
-				        ],
-				        'columnDefs': [
-				        	{
-				        		'createdCell': detectErr,
-				        		'targets': 1
-				        	}
-				        ]
-        			});
+                    data = JSON.parse(json);
+                        
+                    $('#compare').DataTable({
+                        'data': getReferences(data, currentStyle),
+                        'ordering': false,
+                        'pageLength': 5,
+                        'columns' : [
+                            { "data" : "original" },
+                            { "data" : "corrected" },
+                        ],
+                        'columnDefs': [
+                            {
+                                'createdCell': detectErr,
+                                'targets': 1
+                            }
+                        ]
+                    });
                 }
             },
             error: function() {
-            	// Again...
-            	setTimeout(getResult, 5000);
+                // Again...
+                setTimeout(getResult, 5000);
             }
         })
+        }
     }
 
     function detectErr(td, cellData, rowData, row, col) {
     	var original = data['original'][row].toLowerCase();
-    	var corrected = data[currentStyle][row];
+    	var corrected = data[currentStyle.toLowerCase()][row];
 
-    	var wordsCorrected = corrected.split(/\s+/);
-    	console.log(wordsCorrected);
+        if (corrected !== 'Not Found') {
+        	var wordsCorrected = corrected.split(/\s+/);
+        	var newCell = '<span>';
+            
+        	for (var i = 0; i < wordsCorrected.length; ++i) {
+        		if (original.indexOf(wordsCorrected[i].toLowerCase()) === -1) {
+        			// Original reference doesn't have this word, hightlight!
+        			newCell += '<mark class="text-danger"><strong>' + wordsCorrected[i] + '</strong></mark>' + ' ';
+        		} else {
+        			newCell += wordsCorrected[i] + ' ';
+        		}
+        	}
+        	newCell += '<span>';
 
-    	var newCell = '<span>';
-    	for (var i = 0; i < wordsCorrected.length; ++i) {
-    		if (original.indexOf(wordsCorrected[i].toLowerCase()) === -1) {
-    			// Original reference doesn't have this word, hightlight!
-    			newCell += '<mark class="text-danger">' + wordsCorrected[i] + '</mark>' + ' ';
-    		} else {
-    			newCell += wordsCorrected[i] + ' ';
-    		}
-    	}
-    	newCell += '<span>';
-    	console.log(newCell);
+        	$(td).empty().append(newCell);
+        }
 
-    	$(td).empty().append(newCell);
     }
 
     function getReferences(json, style) {
+        console.log(json);
+
     	var original = json.original;
     	var corrected;
     	var list = new Array(original.length);
     	
-    	switch(style) {
-    		case 'APA':
-    			corrected = json.APA;
-    			break;
+    	// switch(style) {
+    	// 	case 'BibTeX':
+    	// 		corrected = json.BibTeX;
+    	// 		break;
 
-    		case 'BibTeX':
-    			corrected = json.BIBTEX;
-    			break;
+     //        case 'IEEE':
+     //            corrected = json.IEEE
 
-    		default:
-    			// Havard
-    			corrected = json.Havard;
-    	}
+     //        case 'ACM':
+
+     //        case 'Chicago':
+
+     //        case 'CSE':
+
+     //        case 'MLA':
+
+    	// 	default:
+    	// 		// APA
+    	// 		corrected = json.APA;
+    	// }
+
+        corrected = json[style.toLowerCase()];
 
     	for (var i = 0; i < original.length; ++i) {
     		var elem = {};
@@ -120,28 +144,47 @@
     		list[i] = elem;
     	}
 
-    	console.log(list);
-
     	return list;
+    }
+
+    function changeStyle(e) {
+        var selectedStyle = $(this).html().trim();
+
+        if (selectedStyle !== currentStyle) {
+
+            // First change the dropdown label
+            $('#button-style').html(selectedStyle);
+
+            // Update var
+            currentStyle = selectedStyle;
+
+            // Update data in the table
+            getResult();
+        }
+
+        // Almost forgot
+        e.preventDefault();
     }
 
     $(document).ready(function() {
     	getResult();
 
-    	$('#style > button.btn').click(function() {
-    		var selectedStyle = $(this).text();
-    		if (selectedStyle != currentStyle) {
-    			$('#' + currentStyle).addClass('btn-outline-primary').removeClass('btn-primary');
-    			$('#' + selectedStyle).addClass('btn-primary').removeClass('btn-outline-primary');
+    	// $('#style > button.btn').click(function() {
+    	// 	var selectedStyle = $(this).text();
+    	// 	if (selectedStyle != currentStyle) {
+    	// 		$('#' + currentStyle).addClass('btn-outline-primary').removeClass('btn-primary');
+    	// 		$('#' + selectedStyle).addClass('btn-primary').removeClass('btn-outline-primary');
 
-    			currentStyle = selectedStyle;
-    		}
-    	})
+    	// 		currentStyle = selectedStyle;
+    	// 	}
+    	// })
 
-        $(".dropdown-menu li a").click(function(){
-	        $(".btn:first-child").text($(this).text());
-	        $(".btn:first-child").val($(this).text());
-	   });
+    //     $(".dropdown-menu li a").click(function(){
+	   //      $(".btn:first-child").text($(this).text());
+	   //      $(".btn:first-child").val($(this).text());
+	   // });
+
+       $('#dropdown-style > a').click(changeStyle);
     });
 </script>
 @endsection
@@ -163,12 +206,22 @@
 
     	<div class="col-md-6">
     		<span class="float-right">
-	    		<div class="btn-group" id="style">
-					<button type="button" id="Havard" class="btn btn-primary">Havard</button>
-					<button type="button" id="APA" class="btn btn-outline-primary">APA</button>
-					<button type="button" id="BibTeX" class="btn btn-outline-primary">BibTeX</button>
-				</div>
-				<button type="button" class="btn btn-outline-primary" id="copy">Copy</button>
+                <div class="dropdown">
+                    <button id="button-style" class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        APA
+                    </button>
+                    <div id="dropdown-style" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#" id="APA">APA</a>
+                        <a class="dropdown-item" href="#" id="MLA">MLA</a>
+                        <a class="dropdown-item" href="#" id="IEEE">IEEE</a>
+                        <a class="dropdown-item" href="#" id="ACM">ACM</a>
+                        <a class="dropdown-item" href="#" id="Chicago">Chicago</a>
+                        <a class="dropdown-item" href="#" id="CSE">CSE</a>
+                        <a class="dropdown-item" href="#" id="BibTeX">BibTeX</a>
+                    </div>
+
+				    <button type="button" class="btn btn-outline-primary" id="copy">Copy</button>
+                </div>
     		</span>
     	</div>
     </div>

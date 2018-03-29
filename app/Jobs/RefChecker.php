@@ -39,13 +39,16 @@ class RefChecker implements ShouldQueue
 
         $array_output = array();
         $return_val = -20;
-        $result = exec('java -jar "' . PATH_TO_JAVA_EXEC . '" "' . $filepath . '"', $array_output, $return_val);    // Extra " for path with whitespaces
+        // $result = exec('java -jar "' . PATH_TO_JAVA_EXEC . '" "' . $filepath . '"', $array_output, $return_val);    // Extra " for path with whitespaces
+        set_time_limit(120);
+        $result = shell_exec('java -jar "' . PATH_TO_JAVA_EXEC . '" s "' . $filepath . '"');
+
+        $result = iconv("Windows-1252", "UTF-8", $result);
         
         $fp = fopen('vardump.txt', 'w');
-        fwrite($fp, serialize($array_output[5]));
+        fwrite($fp, serialize($result));
         fclose($fp);
 
-        $result = $filepath . ' as a result';
         DB::update('UPDATE user_file_result SET result = ? WHERE user_id = ?', [$result, $this->user->id]);
     }
 }
